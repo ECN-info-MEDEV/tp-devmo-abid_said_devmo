@@ -22,4 +22,9 @@
             android:name="com.ecn.birthday.ui.notifications.NotificationsFragment"
             android:label="@string/title_notifications"
             tools:layout="@layout/fragment_notifications"/>
+    <fragment
+            android:id="@+id/navigation_person_list"
+            android:name="com.ecn.birthday.ui.list.PersonListFragment"
+            android:label="@string/title_person_list"
+            tools:layout="@layout/fragment_person_item_list"/>
 </navigation>

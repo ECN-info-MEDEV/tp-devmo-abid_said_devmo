@@ -4,7 +4,6 @@ import androidx.room.ColumnInfo;
 import androidx.room.Entity;
 import androidx.room.PrimaryKey;
 import lombok.Data;
-import lombok.ToString;
 
 
 @Entity
@@ -19,8 +18,8 @@ public class Person {
     @ColumnInfo(name = "last_name")
     private String lastName;
 
-    @ColumnInfo(name = "birth_date")
-    private String birthDate;
+    @ColumnInfo(name = "birthday")
+    private String birthday;
 
     @Override
     public String toString() {
@@ -28,7 +27,7 @@ public class Person {
                 "id=" + id +
                 ", firstName='" + firstName + '\'' +
                 ", lastName='" + lastName + '\'' +
-                ", birthDate='" + birthDate + '\'' +
+                ", birthDate='" + birthday + '\'' +
                 '}';
     }
 }

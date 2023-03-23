@@ -2,17 +2,12 @@ package com.ecn.birthday.ui.home;
 
 import android.app.AlertDialog;
 import android.os.Bundle;
-import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.Button;
-import android.widget.EditText;
-import android.widget.TextView;
-import android.widget.Toast;
+import android.widget.*;
 import androidx.annotation.NonNull;
 import androidx.fragment.app.Fragment;
-import androidx.fragment.app.FragmentResultListener;
 import androidx.lifecycle.ViewModelProvider;
 import androidx.room.Room;
 import com.ecn.birthday.Utils;
@@ -23,7 +18,6 @@ import com.ecn.birthday.entity.Person;
 import com.ecn.birthday.ui.input.DatePickerFragment;
 
 import java.util.Date;
-import java.util.Objects;
 
 public class HomeFragment extends Fragment {
 
@@ -84,7 +78,7 @@ public class HomeFragment extends Fragment {
                     person.setFirstName(firstName);
                     person.setLastName(lastName);
                     // fill birthdate in format yyyy-MM-dd
-                    person.setBirthDate(Utils.formatDatabaseDate(birthdate));
+                    person.setBirthday(Utils.formatDatabaseDate(birthdate));
                     AppDatabase db = Room.databaseBuilder(requireActivity().getApplicationContext(),
                             AppDatabase.class, Utils.DATABASE_NAME).build();
 
