@@ -39,42 +39,11 @@ public class DashboardFragment extends Fragment {
         binding = FragmentDashboardBinding.inflate(inflater, container, false);
         View root = binding.getRoot();
 
-
-        final TextView textView = binding.textDashboard;
-        dashboardViewModel.getText().observe(getViewLifecycleOwner(), textView::setText);
-
-
-        final Button button = binding.button;
-        // log message via logcat
-        button.setOnClickListener(new View.OnClickListener() {
-            public void onClick(View v) {
-                Log.d("DashboardFragment", "onClick");
-
-//                String url = "https://api.chucknorris.io/jokes/random";
-//                RequestQueue queue = Volley.newRequestQueue(DashboardFragment.this.requireContext());
-//
-//                JsonObjectRequest jsonObjectRequest = new JsonObjectRequest(Request.Method.GET, url, null,
-//                        response -> {
-//                            // Extract the joke from the response
-//                            String joke = response.optString("value");
-//
-//                            // Update the text field with the new joke
-//                            textView.setText(joke);
-//                        },
-//                        error -> {
-//                            // Handle error
-//                            Toast.makeText(DashboardFragment.this.requireContext(), "Error: " + error.getMessage(), Toast.LENGTH_SHORT).show();
-//                        });
-//
-//                // Add the request to the RequestQueue.
-//                queue.add(jsonObjectRequest);
-//            }
-            }
-        });
-
-
         final PersonListAdapter adapter = new PersonListAdapter(dashboardViewModel.getPersons());
         binding.recyclerView.setAdapter(adapter);
+        dashboardViewModel.getPersons().observe(getViewLifecycleOwner(), persons -> {
+            adapter.notifyDataSetChanged();
+        });
 
         return root;
     }
